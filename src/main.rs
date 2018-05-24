@@ -4,5 +4,7 @@ mod token;
 fn main() {
     println!("Hello, world!");
 
-    let token = token::Token::new(token::TokenType::Operator, token::DataType::Integer);
+    let mut token = token::Token::new();
+    token.datatype = Some(token::DataType::Integer);
+    println!("{:?}", token);
 }

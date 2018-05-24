@@ -1,35 +1,44 @@
-
+#[derive(Debug)]
 pub enum TokenType {
     Operator,
     Delimeter,
     Reserved,
-    Idtok,
-    Stringtok,
-    Numbertok,
+    IDToken,
+    StringToken,
+    NumberToken,
 }
 
+#[derive(Debug)]
 pub enum DataType {
-    
     Integer,
     Real,
-    Stringtype,
-    Booltype,
+    StringType,
+    BoolType,
     Pointer,
-
 }
 
+#[derive(Debug)]
+pub enum TokenData {
+    TokenString(String),
+    Which(i32),
+    IntNum(i32),
+    RealNum(f32),
+}
+
+#[derive(Debug)]
 pub struct Token {
-    tokentype:  TokenType, 
-    datatype:   DataType,
+    pub tokentype: Option<TokenType>,
+    pub datatype: Option<DataType>,
+    pub tokenval: Option<TokenData>,
 }
 
 impl Token {
-
-    pub fn new(tokentype: TokenType, datatype: DataType) -> Token {
+    pub fn new() -> Token {
 
         Token {
-            tokentype: tokentype,
-            datatype: datatype,
+            tokentype: None,
+            datatype: None,
+            tokenval: None,
         }
     }
-}    
+}
