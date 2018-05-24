@@ -1,3 +1,4 @@
+
 #[derive(Debug)]
 pub enum TokenType {
     Operator,
@@ -6,6 +7,7 @@ pub enum TokenType {
     IDToken,
     StringToken,
     NumberToken,
+    None,
 }
 
 #[derive(Debug)]
@@ -15,6 +17,7 @@ pub enum DataType {
     StringType,
     BoolType,
     Pointer,
+    None,
 }
 
 #[derive(Debug)]
@@ -23,22 +26,23 @@ pub enum TokenData {
     Which(i32),
     IntNum(i32),
     RealNum(f32),
+    None,
 }
 
 #[derive(Debug)]
 pub struct Token {
-    pub tokentype: Option<TokenType>,
-    pub datatype: Option<DataType>,
-    pub tokenval: Option<TokenData>,
+    pub tokentype: TokenType,
+    pub datatype: DataType,
+    pub tokenval: TokenData,
 }
 
 impl Token {
     pub fn new() -> Token {
 
         Token {
-            tokentype: None,
-            datatype: None,
-            tokenval: None,
+            tokentype: TokenType::None,
+            datatype: DataType::None,
+            tokenval: TokenData::None,
         }
     }
 }
